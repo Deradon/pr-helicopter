@@ -2,12 +2,9 @@
 PR Helicopter
 =============
 
-<img width="260px" align="right" hspace="0" vspace="0" src="http://cdn.xl.thumbs.canstockphoto.com/canstock26536369.jpg">
+__You__ have migrated Wimdu in a remarkable moment from Ruby to PL/SQL and your fingers are ready to press the button to __merge__ of your __pull request into master__. :neckbeard: But you're not sure about potential __business impacts?__ :scream:
 
-You have migrated Wimdu in a remarkable moment from Ruby to PL/SQL and your fingers are ready to press the Merge button of your __pull request into master__. But you're not sure about potential __business impacts?__
-
-Dont worry anymore - __PR Helicopter comes to the rescue!__
-<br><br><br>
+Dont worry anymore - __PR Helicopter__ comes __to the rescue!__ :sunglasses:
 
 
 ## About
