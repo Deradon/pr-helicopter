@@ -53,11 +53,15 @@ class Helicopter
     @server.mount_proc '/' do |req, res|
       res.body = 'Thanks!'
 
-      if event?(req => :pull_request)
-        id = extract_pull_id_from_payload(req.body)
-        puts @repo.pulls[id].files.display # TODO...
-      end
+      grep_files_and_notify(req) if event? req => :pull_request
     end
+  end
+
+  # Greps the list of the pull request and sends out notifications.
+  # @param {request} The received Net request with the payload.
+  def grep_files_and_notify(req)
+    id = extract_pull_id_from_payload(req.body)
+    puts @repo.pulls[id].files.display # TODO...
   end
 
   # If the requests comes from that github event.
