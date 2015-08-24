@@ -37,7 +37,7 @@ module Github
     # @param {events} Events the hook is triggered for
     # @param {callback} URL to which the payloads will be delivered
     def self.generate_payload(events, callback)
-      %({"name":"web","active":false,"events":#{events},"config":{"url":"#{callback}","content_type":"form"}}) # rubocop:disable Metrics/LineLength
+      %({"name":"web","active":true,"events":#{events},"config":{"url":"#{callback}","content_type":"json"}}) # rubocop:disable Metrics/LineLength
     end
 
     class << self
