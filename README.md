@@ -2,7 +2,7 @@
 PR Helicopter
 =============
 
-__You__ have migrated Wimdu in a remarkable moment from Ruby to PL/SQL and your fingers are ready to press the button to __merge__ of your __pull request into master__. :neckbeard: But you're not sure about potential __business impacts?__ :scream:
+__You__ have migrated Wimdu in a remarkable moment from Ruby to PL/SQL and your fingers are ready to press the button to __merge__ of your __pull request into master__ :neckbeard:. But wait you're not sure about potential __business impacts?__ :scream:
 
 Dont worry anymore - __PR Helicopter__ comes __to the rescue!__ :sunglasses:
 
