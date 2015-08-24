@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+docker run -p 80:80 -d pr-helicopter
+echo Goto: http://`sh ./bin/ip`/test

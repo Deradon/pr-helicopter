@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'github/client'
+require 'helicopter'
+
+#
+# 1. Send postcard to Github
+#
+
+# Github v3 API endpoint for wimdu repo
+repo = Github::Client.new(secret: ENV['SECRET']).repos[ENV['REPO']]
+
+# Adds web hook to wimdu
+hook = repo.web_hooks.add(
+  'http://call.me/back', events: ['pull_request'])
+
+puts repo.pulls[3257].files.inspect
+
+#
+# 2. Refuel the helicopter
+#
+
+heli = Helicopter.new(repo)
+
+#
+# 3. Black Hawk Down
+#
+
+# Trap ^C and shutdown heli :'(
+trap('INT') { heli.shutdown }
+# Remove hook from repo on exit
+at_exit { hook.delete }
+
+#
+# 3... 2... 1... GO!
+#
+
+heli.start
