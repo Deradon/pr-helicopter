@@ -15,9 +15,7 @@ repo = Github::Client.new(secret: ENV['SECRET']).repos[ENV['REPO']]
 
 # Adds web hook to wimdu
 hook = repo.web_hooks.add(
-  'http://call.me/back', events: ['pull_request'])
-
-puts repo.pulls[3257].files.inspect
+  'http://heli.wimdu.pagekite.me', events: ['pull_request']) # TODO...
 
 #
 # 2. Refuel the helicopter
