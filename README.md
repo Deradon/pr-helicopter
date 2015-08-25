@@ -27,6 +27,7 @@ When starting the service, it does the following:
 - All about notification
 - Stable way to figure out the URI to use for (IP and Port propably)
 - Auto-Restart image on crash
+- Specs
 - Changelog
 - First release
 
