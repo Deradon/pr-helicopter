@@ -1,9 +1,6 @@
 FROM alpine:3.2
 MAINTAINER Sebastian Katzer "sebastian.katzer@wimdu.com"
 
-ENV REPO wimdu/wimdu
-ENV SECRET 40digitsecret
-ENV HOOK_URL http://heli.wimdu.pagekite.me
 ENV BUILD_PACKAGES yaml
 ENV RUBY_PACKAGES ruby
 

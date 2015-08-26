@@ -5,15 +5,18 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'github/client'
 require 'helicopter'
+require 'yaml'
 
 #
 # 1. Send postcard to Github
 #
 
+# Env config for selected environment
+env  = YAML.load_file('config.yml')[ENV['ENV'] || 'development']
 # Github v3 API endpoint for wimdu repo
-repo = Github::Client.new(secret: ENV['SECRET']).repos[ENV['REPO']]
+repo = Github::Client.new(secret: env['secret']).repos[env['repo']]
 # Adds web hook to wimdu
-hook = repo.web_hooks.add(ENV['HOOK_URL'], events: ['pull_request'])
+hook = repo.web_hooks.add(env['hook'], events: ['pull_request'])
 
 #
 # 2. Refuel the helicopter

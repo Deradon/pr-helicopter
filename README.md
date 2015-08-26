@@ -48,12 +48,13 @@ See the [Dockerfile][dockerfile] for more informations.
 
 ### Config
 
-Before running the services, some environment variables must be placed in.
+Before running the service, some config variables must be placed in. Rename [config.sample.yml][config] to _config.yml_ and adapt the settings to your needs.
 
 | env | description | sample |
 | --- | ----------- | ------ |
-| REPO | The Github repository to monitor for. | wimdu/wimdu |
-| SECRET | A 40 digit oauth2 token who have access to the repository to monitor for. | 0123456789... |
+| repo | The Github repository to monitor for | wimdu/wimdu |
+| secret | OAuth access token: https://github.com/settings/tokens | 0123456789... |
+| hook | URL to which the payloads will be delivered | https://heli.wimdu.com |
 
 
 ### Build Scripts
@@ -78,12 +79,12 @@ The best starting point to get into the topic is the [service][service] script. 
 # 1. Send postcard to Github
 #
 
+# Env config for selected environment
+env  = YAML.load_file('config.yml')[ENV['ENV'] || 'development']
 # Github v3 API endpoint for wimdu repo
-repo = Github::Client.new(secret: ENV['SECRET']).repos[ENV['REPO']]
-
+repo = Github::Client.new(secret: env['secret']).repos[env['repo']]
 # Adds web hook to wimdu
-hook = repo.web_hooks.add(
-  'http://heli.wimdu.pagekite.me', events: ['pull_request']) # TODO...
+hook = repo.web_hooks.add(env['hook'], events: ['pull_request'])
 
 #
 # 2. Refuel the helicopter
@@ -159,5 +160,6 @@ The client supports the [Github API v3][github]. To keep things as simple as pos
 [alpine]: http://alpinelinux.org
 [dockerfile]: https://github.com/wimdu/pr-helicopter/blob/master/Dockerfile
 [service]: https://github.com/wimdu/pr-helicopter/blob/master/service
+[config]: https://github.com/wimdu/pr-helicopter/blob/master/config.sample.yml
 [heli]: https://github.com/wimdu/pr-helicopter/blob/master/lib/helicopter.rb
 [github]: https://developer.github.com/v3/

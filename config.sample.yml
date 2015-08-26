@@ -1,0 +1,13 @@
+development: &DEFAULT
+  repo: wimdu/wimdu
+  secret: 0123456789012345678901234567890123456789
+  hook: http://heli.wimdu.pagekite.me
+
+test: &TEST
+  <<: *DEFAULT
+
+staging:
+  <<: *DEFAULT
+
+production:
+  <<: *TEST

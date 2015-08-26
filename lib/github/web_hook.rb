@@ -15,6 +15,10 @@ module Github
     endpoint '/hooks'
 
     # Creates a new hook.
+    # @param {repo} Name of a github repo (:owner/:repo)
+    # @param {secret} 40-digit access token
+    # @param {callback} URL to which the payloads will be delivered
+    # @param {events} Events the hook is triggered for
     # @return Github::WebHook
     def self.create(repo:, secret:, callback:, events: [])
       body = generate_payload(events, callback)
