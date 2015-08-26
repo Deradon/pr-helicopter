@@ -110,8 +110,6 @@ at_exit { hook.delete }
 heli.start
 ```
 
-Taking a look into [Helicopter#grep_files_and_notify][heli] is also an good idea!
-
 ### Github Client
 
 The client supports the [Github API v3][github]. To keep things as simple as possible the does only support things that are needed as listed below in the table.
