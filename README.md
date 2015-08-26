@@ -89,7 +89,9 @@ hook = repo.web_hooks.add(
 # 2. Refuel the helicopter
 #
 
-heli = Helicopter.new(repo)
+heli = Helicopter.new on_pull: ->(id) {
+    puts repo.pulls[id].files
+}
 
 #
 # 3. Black Hawk Down
