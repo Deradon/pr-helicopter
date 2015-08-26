@@ -15,11 +15,10 @@ class Helicopter
   attr_reader :server
 
   # Prepares the server but does not start them.
-  # @param {repo} Github::Client instance
-  def initialize(repo)
-    @repo = repo
+  # @param {on_pull} Proc to execute when a pull hook was received.
+  def initialize(on_pull:)
     @server = WEBrick::HTTPServer.new(Port: 80)
-
+    @on_pull_proc = on_pull
     setup
   end
 
@@ -61,7 +60,7 @@ class Helicopter
   # @param {request} The received Net request with the payload.
   def grep_files_and_notify(req)
     id = extract_pull_id_from_payload(req.body)
-    puts @repo.pulls[id].files.display # TODO...
+    @on_pull_proc.call(id)
   end
 
   # If the requests comes from that github event.

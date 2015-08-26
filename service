@@ -12,16 +12,16 @@ require 'helicopter'
 
 # Github v3 API endpoint for wimdu repo
 repo = Github::Client.new(secret: ENV['SECRET']).repos[ENV['REPO']]
-
 # Adds web hook to wimdu
-hook = repo.web_hooks.add(
-  'http://heli.wimdu.pagekite.me', events: ['pull_request']) # TODO...
+hook = repo.web_hooks.add(ENV['HOOK_URL'], events: ['pull_request'])
 
 #
 # 2. Refuel the helicopter
 #
 
-heli = Helicopter.new(repo)
+heli = Helicopter.new(on_pull: lambda do |id|
+  puts repo.pulls[id].files.display
+end)
 
 #
 # 3. Black Hawk Down
