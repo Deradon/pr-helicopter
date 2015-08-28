@@ -1,6 +1,10 @@
 .git
 .bundle
+.rspec
+.gitignore
+config.sample.yml
 bin
+coverage
 *.md
 !LICENSE.md
 vendor
