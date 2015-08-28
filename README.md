@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/wimdu/pr-helicopter/badges/gpa.svg)](https://codeclimate.com/github/wimdu/pr-helicopter)
+
 
 PR Helicopter
 =============
@@ -28,7 +30,6 @@ When starting the service, it does the following:
 - Stable way to figure out the URI to use for (IP and Port propably)
 - Auto-Restart image on crash
 - Specs
-- Changelog
 - First release
 
 ## DevOps
