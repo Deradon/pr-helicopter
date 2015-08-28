@@ -64,7 +64,7 @@ module Github
       @secret = secret
     end
 
-    attr_reader :id, :repo, :secret
+    attr_reader :id, :repo
 
     # Returns the request URI for that resource.
     # @return String
@@ -78,12 +78,14 @@ module Github
       URI.join('https://api.github.com', request_uri).to_s
     end
 
+    protected
+
+    attr_reader :secret
+
     # HTTP Net connection to communication with Github API.
     # @return {Github::Request}
     def request
       Github::Request.new(secret, uri)
     end
-
-    protected :secret
   end
 end
