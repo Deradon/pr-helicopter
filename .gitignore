@@ -24,7 +24,7 @@ build/
 ## Environment normalisation:
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 ## Documentation cache and generated files:
-# Gemfile.lock
+Gemfile.lock
 config.yml
 /test/tmp/
 /doc/
