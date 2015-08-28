@@ -1,4 +1,9 @@
 .git
+.bundle
 bin
 *.md
 !LICENSE.md
+vendor
+spec
+Gemfile*
+Rakefile
