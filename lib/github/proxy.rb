@@ -27,7 +27,7 @@ module Github
     # @param {id} ID of the resource
     # @return <? extends Github::Resource>
     def find(id)
-      self.class.resource.find(id, repo: repo || id, secret: secret)
+      resource.find(id, repo: repo || id, secret: secret)
     end
 
     alias_method :[], :find
