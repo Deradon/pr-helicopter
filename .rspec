@@ -1,2 +1,4 @@
 --color
 --require spec_helper
+--require github/shared/resource.rb
+--require github/shared/proxy.rb

@@ -1,4 +1,5 @@
 [![Code Climate](https://codeclimate.com/github/wimdu/pr-helicopter/badges/gpa.svg)](https://codeclimate.com/github/wimdu/pr-helicopter)
+[![Test Coverage](https://codeclimate.com/github/wimdu/pr-helicopter/badges/coverage.svg)](https://codeclimate.com/github/wimdu/pr-helicopter/coverage)
 
 
 PR Helicopter
