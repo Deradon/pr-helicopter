@@ -42,8 +42,9 @@ module Github
 
     # Specified the endpoint for that resource
     # => endpoint '/pulls'
-    def self.endpoint(uri) # rubocop:disable Metrics/TrivialAccessors
-      @endpoint = uri
+    def self.endpoint(uri = nil)
+      @endpoint = uri if uri
+      @endpoint
     end
 
     # Adds the specified proxy to this resource.
