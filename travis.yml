@@ -1,0 +1,22 @@
+language: ruby
+sudo: false
+before_install:
+  - bundle install
+cache: bundler
+bundler_args: --without documentation development production
+rvm:
+  - 2.0
+  - 2.1
+  - 2.2
+  - ruby-head
+  - rbx
+  - rbx-head
+  - jruby
+  - jruby-1.7
+  - jruby-head
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-head
+    - rvm: rbx-head
+  fast_finish: true
