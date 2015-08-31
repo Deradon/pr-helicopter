@@ -5,7 +5,7 @@ RSpec.describe Github::PullRequest do
 
   describe '.endpoint' do
     subject { described_class.endpoint }
-    it { is_expected.to match(%r{/pulls$}) }
+    it { is_expected.to match(%r{/?pulls$}) }
   end
 
   subject { described_class.new(id: 1, repo: 'repo', secret: 'abc') }
