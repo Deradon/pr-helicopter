@@ -2,6 +2,7 @@
 .bundle
 .rspec
 .gitignore
+.travis.yml
 config.sample.yml
 bin
 coverage
