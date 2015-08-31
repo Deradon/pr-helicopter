@@ -6,6 +6,7 @@ end
 
 group :test do
   gem 'rspec'
-  gem 'webmock'
-  gem 'simplecov'
+  gem 'webmock', require: nil
+  gem 'simplecov', require: nil
+  gem 'codeclimate-test-reporter', require: nil
 end
