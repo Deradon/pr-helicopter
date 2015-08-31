@@ -11,6 +11,3 @@ matrix:
   allow_failures:
     - rvm: ruby-head
   fast_finish: true
-addons:
-  code_climate:
-    repo_token: 84aa845e45000e39a41f1588fb2bdba5b7dc398f85328e796df60b8a1f478d7f
