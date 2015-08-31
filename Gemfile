@@ -5,6 +5,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rake'
   gem 'rspec'
   gem 'webmock', require: nil
   gem 'simplecov', require: nil
