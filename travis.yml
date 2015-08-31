@@ -5,18 +5,12 @@ before_install:
 cache: bundler
 bundler_args: --without documentation development production
 rvm:
-  - 2.0
-  - 2.1
   - 2.2
   - ruby-head
-  - rbx
-  - rbx-head
-  - jruby
-  - jruby-1.7
-  - jruby-head
 matrix:
   allow_failures:
     - rvm: ruby-head
-    - rvm: jruby-head
-    - rvm: rbx-head
   fast_finish: true
+addons:
+  code_climate:
+    repo_token: 84aa845e45000e39a41f1588fb2bdba5b7dc398f85328e796df60b8a1f478d7f
