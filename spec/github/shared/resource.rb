@@ -52,10 +52,6 @@ RSpec.shared_examples 'a Github::Resource' do
   it { is_expected.not_to respond_to(:id=, :repo=, :secret=) }
   it { is_expected.to_not respond_to_public(:secret) }
 
-  describe '.uri' do
-    subject { described_class.find(1, repo: repo, secret: '').uri }
-  end
-
   describe "#{described_class}.new id: 1, repo: 'wimdu/wimdu', secret: '...'" do
     let(:obj) { described_class.new(id: 1, repo: repo, secret: '') }
     let(:req_uri) { "/repos/#{repo}#{described_class.endpoint}/1" }
