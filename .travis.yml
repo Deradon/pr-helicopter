@@ -1,9 +1,10 @@
 language: ruby
-sudo: false
-before_install:
-  - bundle install
-cache: bundler
-bundler_args: --without documentation development production
+
+sudo: required
+
+services:
+  - docker
+
 rvm:
   - 2.2
   - ruby-head
@@ -11,3 +12,12 @@ matrix:
   allow_failures:
     - rvm: ruby-head
   fast_finish: true
+
+before_install:
+  - bundle install
+bundler_args: --without documentation development production
+cache: bundler
+
+script:
+  - bundle exec rake
+  - ./build
