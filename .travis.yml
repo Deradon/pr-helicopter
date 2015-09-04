@@ -20,4 +20,4 @@ cache: bundler
 
 script:
   - bundle exec rake
-  - ./build
+  - ./bin/build
