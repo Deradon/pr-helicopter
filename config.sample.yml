@@ -6,8 +6,5 @@ development: &DEFAULT
 test: &TEST
   <<: *DEFAULT
 
-staging:
-  <<: *DEFAULT
-
 production:
   <<: *TEST
