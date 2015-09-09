@@ -1,5 +1,6 @@
 
 require 'webrick'
+require 'helicopter/config'
 
 #
 # The Helicopter wraps a webrick instance with 2 mounts:
@@ -22,12 +23,17 @@ class Helicopter
     setup
   end
 
-  # Starts the server
+  # Returns an instance of Helicopter::Config
+  def self.config
+    @cfg ||= Config.new
+  end
+
+  # Starts the server.
   def start
     @server.start
   end
 
-  # Shutdown the server
+  # Shutdowns the server.
   def shutdown
     @server.shutdown
   end
