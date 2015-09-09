@@ -3,7 +3,7 @@
 .rspec
 .gitignore
 .travis.yml
-config.sample.yml
+config/*sample.yml
 bin
 coverage
 *.md

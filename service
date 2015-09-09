@@ -12,7 +12,7 @@ require 'yaml'
 #
 
 # Env config for selected environment
-env  = YAML.load_file('config.yml')[ENV['ENV'] || 'development']
+env  = YAML.load_file('config/github.yml')[ENV.fetch('ENV', 'development')]
 # Github v3 API endpoint for wimdu repo
 repo = Github::Client.new(secret: env['secret']).repos[env['repo']]
 # Adds web hook to wimdu
