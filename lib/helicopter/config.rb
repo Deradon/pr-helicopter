@@ -9,11 +9,6 @@ class Helicopter
       ENV.fetch('ENV', 'development')
     end
 
-    # Returns the github configuration.
-    def config
-      @cfg ||= YAML.load_file('config/github.yml')[env]
-    end
-
     # To access the config value for the given key.
     def method_missing(name)
       config[name.to_s]
@@ -27,6 +22,13 @@ class Helicopter
       group     = cfg['files'][path]
 
       receivers[group]
+    end
+
+    private
+
+    # Returns the github configuration.
+    def config
+      @cfg ||= YAML.load_file('config/github.yml')[env]
     end
   end
 end

@@ -7,7 +7,8 @@ end
 group :test do
   gem 'rake'
   gem 'rspec'
-  gem 'webmock', require: nil
-  gem 'simplecov', require: nil
-  gem 'codeclimate-test-reporter', require: nil
+  gem 'webmock'
+  gem 'simplecov'
+  gem 'codeclimate-test-reporter'
+  gem 'fakefs', require: 'fakefs/safe'
 end

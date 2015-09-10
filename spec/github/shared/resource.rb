@@ -1,5 +1,4 @@
 
-
 RSpec.shared_examples 'a Github::Resource' do
   let(:repo) { 'wimdu/wimdu' }
 
