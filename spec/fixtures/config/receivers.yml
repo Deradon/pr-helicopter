@@ -1,0 +1,11 @@
+groups:
+  development: &DEFAULT
+    bi:
+      - me@test.de
+  test: &TEST
+    <<: *DEFAULT
+  production:
+    <<: *TEST
+
+files:
+  schema.rb: bi

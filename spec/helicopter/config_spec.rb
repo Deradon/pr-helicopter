@@ -1,9 +1,14 @@
 require 'fakefs/spec_helpers'
 require 'helicopter/config'
 require 'uri'
-require 'yaml'
 
 RSpec.describe Helicopter::Config do
+  include FakeFS::SpecHelpers
+
+  before do
+    FakeFS::FileSystem.clone('spec/fixtures/config', 'config')
+  end
+
   it { is_expected.to respond_to(:env, :receivers_for) }
 
   context 'checking config files' do
@@ -42,25 +47,11 @@ RSpec.describe Helicopter::Config do
   end
 
   context 'when me@test.de should get notified about changes in schema.rb' do
-    include FakeFS::SpecHelpers
-    let(:file) { 'schema.rb' }
-    let(:email) { 'me@test.de' }
-    subject { described_class.new.receivers_for(file) }
-
-    before do
-      ENV['ENV'] = 'test'
-      FileUtils.mkdir_p('config')
-
-      File.open('config/receivers.yml', 'w') do |f|
-        f.write({
-          'groups' => { 'test' => { 'bi' => [email] } },
-          'files' => { 'schema.rb' => 'bi' }
-        }.to_yaml)
-      end
-    end
+    before { ENV['ENV'] = 'test' }
+    subject { described_class.new.receivers_for('schema.rb') }
 
     it("#receivers_for('schema.rb') returns me@test.de") do
-      is_expected.to eq([email])
+      is_expected.to eq(['me@test.de'])
     end
   end
 end
