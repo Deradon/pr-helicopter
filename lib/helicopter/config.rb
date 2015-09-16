@@ -17,7 +17,10 @@ class Helicopter
     # To access all receivers for the given file.
     # @param {path} Path of the file
     def receivers_for(path)
-      cfg       = YAML.load_file('config/receivers.yml')
+      cfg = YAML.load_file('config/receivers.yml')
+
+      fail "Missing group for #{env}" unless cfg['groups'].include? env
+
       receivers = cfg['groups'][env]
       group     = cfg['files'][path]
 
