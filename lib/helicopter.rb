@@ -17,8 +17,8 @@ class Helicopter
 
   # Prepares the server but does not start them.
   # @param {on_pull} Proc to execute when a pull hook was received.
-  def initialize(on_pull:)
-    @server = WEBrick::HTTPServer.new(Port: 80)
+  def initialize(on_pull:, port: 3000)
+    @server = WEBrick::HTTPServer.new(Port: port)
     @on_pull_proc = on_pull
     setup
   end
