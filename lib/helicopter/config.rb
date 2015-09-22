@@ -27,11 +27,19 @@ class Helicopter
       receivers.fetch(group, [])
     end
 
+    # To show the content of the merged config files.
+    def inspect
+      config.inspect
+    end
+
     private
 
     # Returns the github configuration.
     def config
-      @cfg ||= YAML.load_file('config/github.yml')[env]
+      @cfg ||= begin
+        YAML.load_file('config/github.yml')[env].merge(
+          YAML.load_file('config/sendgrid.yml')[env])
+      end
     end
   end
 end
