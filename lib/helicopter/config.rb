@@ -16,6 +16,7 @@ class Helicopter
 
     # To access all receivers for the given file.
     # @param {path} Path of the file
+    # @return Array of receiver emails
     def receivers_for(path)
       cfg       = YAML.load_file('config/receivers.yml')
       receivers = cfg['groups'][env]
@@ -23,7 +24,7 @@ class Helicopter
 
       fail "#{env} not configured in config/receivers.yml" unless receivers
 
-      receivers[group]
+      receivers.fetch(group, [])
     end
 
     private
