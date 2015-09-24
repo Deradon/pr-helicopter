@@ -1,4 +1,3 @@
-require 'github/web_hook'
 
 RSpec.describe Github::WebHook do
   it_behaves_like 'a Github::Resource'

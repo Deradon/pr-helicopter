@@ -1,4 +1,3 @@
-require 'github/web_hook_proxy'
 
 RSpec.describe Github::WebHookProxy do
   it_behaves_like 'a Github::Proxy'

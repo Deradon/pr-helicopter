@@ -1,4 +1,3 @@
-require 'github/pull_request'
 
 RSpec.describe Github::PullRequest do
   it_behaves_like 'a Github::Resource'

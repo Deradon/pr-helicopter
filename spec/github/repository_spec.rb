@@ -1,4 +1,3 @@
-require 'github/repository'
 
 RSpec.describe Github::Repository do
   it_behaves_like 'a Github::Resource'

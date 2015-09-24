@@ -1,4 +1,3 @@
-require 'github/repository_proxy'
 
 RSpec.describe Github::RepositoryProxy do
   it_behaves_like 'a Github::Proxy'
