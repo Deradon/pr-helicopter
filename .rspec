@@ -1,4 +1,5 @@
 --color
 --require spec_helper
---require github/shared/resource.rb
---require github/shared/proxy.rb
+--require shared/github_resource.rb
+--require shared/github_proxy.rb
+--require shared/base_notification.rb
