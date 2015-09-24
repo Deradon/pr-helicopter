@@ -14,7 +14,7 @@ class Helicopter
 
     # To access the config value for the given key.
     def method_missing(name)
-      config[name.to_s]
+      to_h[name.to_s]
     end
 
     # To access all receivers for the given file.
@@ -26,13 +26,11 @@ class Helicopter
 
     # To show the content of the merged config files.
     def inspect
-      config.inspect
+      to_h.inspect
     end
 
-    private
-
-    # Returns the github configuration.
-    def config
+    # Returns the configuration.
+    def to_h
       @cfg ||= YAML.load_file("config/#{env}.yml")
     end
   end

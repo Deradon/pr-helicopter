@@ -1,7 +1,7 @@
 require 'uri'
 
 RSpec.describe Helicopter::Config do
-  it { is_expected.to respond_to(:env, :receivers_for) }
+  it { is_expected.to respond_to(:env, :receivers_for, :to_h) }
 
   context 'when ENV is not set' do
     before { ENV.delete 'ENV' }
@@ -22,5 +22,11 @@ RSpec.describe Helicopter::Config do
     it("#receivers_for('db/schema.rb') returns me@test.de") do
       is_expected.to eq(['me@test.de'])
     end
+  end
+
+  describe 'inspect' do
+    let(:cfg) { described_class.new }
+    subject { cfg.inspect }
+    it { is_expected.to eq(cfg.to_h.inspect)}
   end
 end
