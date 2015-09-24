@@ -27,6 +27,6 @@ RSpec.describe Helicopter::Config do
   describe 'inspect' do
     let(:cfg) { described_class.new }
     subject { cfg.inspect }
-    it { is_expected.to eq(cfg.to_h.inspect)}
+    it('should return #to_h.inspect') { is_expected.to eq(cfg.to_h.inspect) }
   end
 end
