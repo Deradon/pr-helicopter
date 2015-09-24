@@ -65,8 +65,9 @@ class Helicopter
   # Greps the list of the pull request and sends out notifications.
   # @param {request} The received Net request with the payload.
   def grep_files_and_notify(req)
-    id = extract_pull_id_from_payload(req.body)
-    @on_pull_proc.call(id)
+    url = extract_url_from_payload(req.body)
+    id  = url.flatten.first.split('/').last
+    @on_pull_proc.call(id, url)
   end
 
   # If the requests comes from that github event.
@@ -79,11 +80,10 @@ class Helicopter
     request.header['x-github-event'].include? event.to_s
   end
 
-  # Returns the pull ID from the payload.
+  # Returns the pull URL from the payload.
   # @param {payload} The received request body
   # @return String
-  def extract_pull_id_from_payload(payload)
-    url = payload.scan(/"pull_request":[^("url:")]"url": *"+([^"]+)/)
-    url.flatten.first.split('/').last
+  def extract_url_from_payload(payload)
+    payload.scan(/"pull_request":[^("url:")]"url": *"+([^"]+)/)
   end
 end
