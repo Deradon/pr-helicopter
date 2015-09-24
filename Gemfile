@@ -10,5 +10,4 @@ group :test do
   gem 'webmock'
   gem 'simplecov'
   gem 'codeclimate-test-reporter'
-  gem 'fakefs', require: 'fakefs/safe'
 end

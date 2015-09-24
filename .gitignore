@@ -1,32 +1,25 @@
-/.config
-/test/version_tmp/
-.rvmrc
-/spec/reports/
-*.gem
-/pkg/
-## Specific to RubyMotion:
-/tmp/
-/coverage/
-build/
-/_yardoc/
-/vendor/bundle
-/.bundle/
-.repl_history
-/lib/bundler/man/
-# intended to run in multiple environments; otherwise, check them in:
 /.yardoc/
-.dat*
-/rdoc/
-/InstalledFiles
-# .ruby-gemset
-# .ruby-version
-*.rbc
-## Environment normalisation:
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-## Documentation cache and generated files:
-Gemfile.lock
-config/github.yml
-config/receivers.yml
+/vendor/bundle
+build/
 /test/tmp/
+/lib/bundler/man/
+/coverage/
+Gemfile.lock
+.dat*
+.rvmrc
+/tmp/
 /doc/
-# for a library or gem, you might want to ignore these files since the code is
+/.config
+.repl_history
+*.gem
+/InstalledFiles
+config/production.yml
+*.rbc
+config/development.yml
+/test/version_tmp/
+/spec/reports/
+/.bundle/
+/_yardoc/
+config/test.yml
+/pkg/
+/rdoc/

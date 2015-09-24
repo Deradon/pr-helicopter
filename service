@@ -5,6 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'github/client'
 require 'helicopter'
+require 'helicopter/notification'
 
 # To access all the stuff under /config
 cfg = Helicopter.config
@@ -14,9 +15,9 @@ cfg = Helicopter.config
 #
 
 # Github v3 API endpoint for wimdu repo
-repo = Github::Client.new(secret: cfg.secret).repos[cfg.repo]
+repo = Github::Client.new(secret: cfg.github['secret']).repos[cfg.github['repo']]
 # Adds web hook to wimdu
-hook = repo.web_hooks.add(cfg.hook, events: ['pull_request'])
+hook = repo.web_hooks.add(cfg.github['hook'], events: ['pull_request'])
 
 #
 # 2. Refuel the helicopter
@@ -24,7 +25,9 @@ hook = repo.web_hooks.add(cfg.hook, events: ['pull_request'])
 
 heli = Helicopter.new(on_pull: lambda do |id|
   repo.pulls[id].files.each do |file|
-    puts "#{file}: #{cfg.receivers_for(file)}"
+    puts "#{file}: #{cfg.receivers_for(file).inspect}"
+    mail = Helicopter::Notification.new(type: 'email', file: file, pr: repo.pulls[id].uri)
+    mail.send_to cfg.receivers_for(file)
   end
 end)
 
