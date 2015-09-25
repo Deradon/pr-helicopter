@@ -20,6 +20,5 @@ config/development.yml
 /spec/reports/
 /.bundle/
 /_yardoc/
-config/test.yml
 /pkg/
 /rdoc/

@@ -1,0 +1,21 @@
+github:
+  repo: wimdu/wimdu
+  secret: 0000000000000000000000000000000000000000
+  hook: http://heli.wimdu.pagekite.me
+
+groups:
+  bi:
+    - me@test.de
+
+files:
+  db/schema.rb: bi
+
+notification:
+  type: base
+  from: pr-helicopter@wimdu.com
+  subject: _file_
+  body: _pr_
+
+email:
+  api_key: 00000000000000000000
+  api_user: pr-helicopter
