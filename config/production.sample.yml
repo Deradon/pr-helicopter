@@ -1,6 +1,6 @@
 github:
   repo: wimdu/wimdu
-  secret: 7c821338f75137b54d9dd8b04d2d661c5031c250
+  secret: 0000000000000000000000000000000000000000
   hook: http://heli.wimdu.pagekite.me
 
 groups:
