@@ -16,6 +16,7 @@ notification:
   subject: _file_
   body: _pr_
 
-email:
-  api_key: a12345678901234567A
-  api_user: pr-helicopter
+credentials:
+  base:
+    api_key: a12345678901234567A
+    api_user: pr-helicopter

@@ -1,6 +1,7 @@
 
 #
-#
+# Generic notification class.
+# One notification might be sent to multiple channels.
 #
 
 class Helicopter
@@ -39,7 +40,15 @@ class Helicopter
       subject = render_tpl(subject_tpl, file, pr)
       body    = render_tpl(body_tpl, file, pr)
 
-      notificiation_class(type).new(from: from, subject: subject, body: body)
+      notificiation_class(type).new(
+        from: from, subject: subject,
+        body: body, credentials: credentials(type))
+    end
+
+    # Returns the credentials for that notification type.
+    # @param {type} Type of the notification
+    def credentials(type)
+      Helicopter.config.credentials.fetch(type, {})
     end
 
     # Replaces the _file_ and _pr_ placeholders with the proper content.

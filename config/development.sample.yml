@@ -9,7 +9,6 @@ groups:
 
 files:
   db/schema.rb: bi
-  app/models/seo_page.rb: bi
 
 notification:
   type: email
@@ -17,6 +16,7 @@ notification:
   subject: Detected changes for _file_
   body: _pr_ contains changes for _file_.
 
-email:
-  api_key: a12345678901234567A
-  api_user: pr-helicopter
+credentials:
+  email:
+    api_key: a12345678901234567A
+    api_user: pr-helicopter
