@@ -18,5 +18,5 @@ notification:
   body: _pr_ contains changes for _file_.
 
 email:
-  api_key: AyB4jB4MQX5fPrsaLuKt
+  api_key: a12345678901234567A
   api_user: pr-helicopter
