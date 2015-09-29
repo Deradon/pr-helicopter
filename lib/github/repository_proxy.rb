@@ -1,4 +1,3 @@
-
 require 'github/proxy'
 require 'github/repository'
 

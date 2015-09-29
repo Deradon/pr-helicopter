@@ -1,4 +1,3 @@
-
 require 'github/proxy'
 require 'github/pull_request'
 

@@ -1,4 +1,3 @@
-
 require 'github/repository_proxy'
 
 #

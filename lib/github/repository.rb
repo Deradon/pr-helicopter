@@ -1,4 +1,3 @@
-
 require 'github/resource'
 require 'github/web_hook_proxy'
 require 'github/pull_request_proxy'
