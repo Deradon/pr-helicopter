@@ -9,13 +9,12 @@ groups:
 
 files:
   db/schema.rb: bi
-  app/models/seo_page.rb: bi
 
 notification:
   type: base
   from: pr-helicopter@wimdu.com
-  subject: Detected changes for _file_
-  body: _pr_ contains changes for _file_.
+  subject: _file_
+  body: _pr_
 
 email:
   api_key: a12345678901234567A
